@@ -120,9 +120,9 @@ def writeToCSV(histRP, fileName):
             rp.Rank)
         csvFile.write(line)
     csvFile.close()
-        
+  
 def main():
-    histFileName = 'history_jordan.dat'
+    histFileName = 'history.dat'
     logFileName = 'Launch.log'
     csvFileName = 'history.csv'
 
