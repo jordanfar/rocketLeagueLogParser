@@ -125,11 +125,13 @@ def newConfig():
      config = configparser.ConfigParser()
      config.add_section('FilePaths')
      userPath = os.path.expanduser('~')
-     config.set('FilePaths','LogsPath', userPath +
+     config.set('FilePaths', 'LogsPath', userPath +
                 '/My Games/Rocket League/TAGame/Logs/')
-     config.set('csv', '%(LogsPath)s/history.csv')
-     config.set('dat', '%(LogsPath)s/history.dat')
-     config.set('log', '%(LogsPath)s/Launch.log')
+     config.set('FilePaths', 'csv', '%(LogsPath)s/history.csv')
+     config.set('FilePaths', 'dat', '%(LogsPath)s/history.dat')
+     config.set('FilePaths', 'log', '%(LogsPath)s/Launch.log')
+     with open('config.cfg', 'w') as configFile:
+          config.write(configFile)
   
 def main():
     histFileName = 'history.dat'
