@@ -1,4 +1,4 @@
-import pickle
+import pickle, configparser, os
 
 class RankPoint:
 
@@ -120,6 +120,16 @@ def writeToCSV(histRP, fileName):
             rp.Rank)
         csvFile.write(line)
     csvFile.close()
+
+def newConfig():
+     config = configparser.ConfigParser()
+     config.add_section('FilePaths')
+     userPath = os.path.expanduser('~')
+     config.set('FilePaths','LogsPath', userPath +
+                '/My Games/Rocket League/TAGame/Logs/')
+     config.set('csv', '%(LogsPath)s/history.csv')
+     config.set('dat', '%(LogsPath)s/history.dat')
+     config.set('log', '%(LogsPath)s/Launch.log')
   
 def main():
     histFileName = 'history.dat'
