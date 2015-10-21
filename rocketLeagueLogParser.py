@@ -161,6 +161,8 @@ def main():
     #write all rankPoint objects to csv
     writeToCSV(histRP, csvFileName)
 
+    input("Press Enter to exit:")
+
 
 if __name__ == "__main__":
     main()
