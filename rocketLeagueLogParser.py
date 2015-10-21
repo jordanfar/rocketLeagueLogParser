@@ -124,9 +124,9 @@ def writeToCSV(histRP, fileName):
 def newConfig():
      config = configparser.ConfigParser()
      config.add_section('FilePaths')
-     userPath = os.path.expanduser('~')
+     userPath = os.path.expanduser('~/Documents')
      config.set('FilePaths', 'LogsPath', userPath +
-                '/My Games/Rocket League/TAGame/Logs/')
+                '/My Games/Rocket League/TAGame/Logs')
      config.set('FilePaths', 'csv', '%(LogsPath)s/history.csv')
      config.set('FilePaths', 'dat', '%(LogsPath)s/history.dat')
      config.set('FilePaths', 'log', '%(LogsPath)s/Launch.log')
