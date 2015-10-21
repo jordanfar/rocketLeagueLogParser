@@ -49,12 +49,11 @@ def getHistoryData(fileName):
 
 def getLogData(fileName):
     """parse logfile and return array of RankPoint objects"""
-    fileName = "Launch.log"
     try:
         textFile = open(fileName, mode='r', encoding = 'ISO-8859-1')
         print ('Load data from {0}'.format(fileName))
     except:
-        print('Unable to open Launch.log, ensure this program is in the same folder')
+        print('Unable to open Launch.log, ensure config.cfg has the correct paths')
         input('Press Enter to exit')
         return None
     
@@ -132,11 +131,17 @@ def newConfig():
      config.set('FilePaths', 'log', '%(LogsPath)s/Launch.log')
      with open('config.cfg', 'w') as configFile:
           config.write(configFile)
+
+def readConfig():
+     config = configparser.ConfigParser()
+     config.read('config.cfg')
+     return config
   
 def main():
-    histFileName = 'history.dat'
-    logFileName = 'Launch.log'
-    csvFileName = 'history.csv'
+    config = readConfig()
+    histFileName = config['FilePaths']['dat']
+    logFileName = config['FilePaths']['log']
+    csvFileName = config['FilePaths']['csv']
 
     #get an array of RankPoint objects from logfile
     logRP = getLogData(logFileName)
