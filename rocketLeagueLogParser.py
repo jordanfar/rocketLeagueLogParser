@@ -134,7 +134,11 @@ def newConfig():
 
 def readConfig():
      config = configparser.ConfigParser()
-     config.read('config.cfg')
+     if os.path.isfile('config.cfg'):
+         config.read('config.cfg')
+     else:
+         newConfig()
+         config.read('config.cfg')
      return config
   
 def main():
