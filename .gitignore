@@ -47,3 +47,6 @@ __pycache__
 
 #config.cfg
 config.cfg
+
+#vim temp files
+*~
