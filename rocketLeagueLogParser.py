@@ -108,15 +108,16 @@ def writeToCSV(histRP, fileName):
     """write RankPoints array to csv file"""
     print("Writing to {0}".format(fileName))
     csvFile = open(fileName, 'w')
-    csvFile.write('Date,Playlist,Mu,Sigma,TrueSkill,RankPoints\n')
+    csvFile.write('Date,Playlist,Mu,Sigma,TrueSkill,DeltaRankPoints,RankPoints\n')
     for rp in histRP:
-        line = '{0},{1},{2:.4f},{3:.4f},{4:.4f},{5:.1f}\n'.format(
-            rp.Date,
-            rp.HumanReadablePlaylist,
-            rp.Mu,
-            rp.Sigma,
-            rp.TrueSkill,
-            rp.Rank)
+        line = '{0},{1},{2:.4f},{3:.4f},{4:.4f},{5:.1f},{6:.1f}\n'.format(
+        rp.Date,
+        rp.HumanReadablePlaylist,
+        rp.Mu,
+        rp.Sigma,
+        rp.TrueSkill,
+        rp.DeltaRankPoints,
+        rp.Rank)
         csvFile.write(line)
     csvFile.close()
 
