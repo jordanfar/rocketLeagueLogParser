@@ -1,4 +1,4 @@
-import pickle, configparser, os
+import pickle, configparser, os, sys
 
 class RankPoint:
 
@@ -163,14 +163,14 @@ def main():
         if not(histRP[-1] == logRP[-1]):
             histRP += logRP
             writeDatFile(histRP, histFileName)
-
-    #print results of most recent matches to console
-    prettyPrint(histRP)
     
     #write all rankPoint objects to csv
     writeToCSV(histRP, csvFileName)
 
-    input("Press Enter to exit:")
+    #print results of most recent matches to console
+    if not('-s' in sys.argv or '--silent' in sys.argv):
+         prettyPrint(histRP)
+         input("Press Enter to exit:")
 
 
 if __name__ == "__main__":
