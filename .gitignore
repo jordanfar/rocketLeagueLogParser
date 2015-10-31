@@ -50,3 +50,9 @@ config.cfg
 
 #vim temp files
 *~
+
+#output
+history.csv
+
+#pycharm
+.idea
